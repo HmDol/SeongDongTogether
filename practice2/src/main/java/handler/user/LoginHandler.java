@@ -25,7 +25,7 @@ public class LoginHandler implements Handler {
 			User m = service.getUser(id);
 			if (m != null && pwd.equals(m.getUserPassword())) {
 				HttpSession session = request.getSession();
-				session.setAttribute("loginId", id);
+				session.setAttribute("userID", id);
 				System.out.println("로그인 성공");
 			}
 		}
