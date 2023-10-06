@@ -8,6 +8,11 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css?after" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/custom.css?after" />
 </head>
+<script>
+const login = (msg) => {
+	alret(msg);
+}
+</script>
 <body>
 	<nav class="navbar navbar-default">
 		<div class="navbar-header">
@@ -54,7 +59,8 @@
 					<div class="form-group">
 						<input type="password" class="form-control" placeholder="비밀번호" name="userPassword" maxlength="20" />
 					</div>
-					<input type="submit" class="btn btn-primary form-control" value="로그인" />
+					<input type="submit" class="btn btn-primary form-control" value="로그인" onclick="longin(${msg})"/>
+					
 				</form>
 			</div>
 		</div>

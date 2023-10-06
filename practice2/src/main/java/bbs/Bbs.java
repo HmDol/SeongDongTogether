@@ -6,8 +6,24 @@ public class Bbs {
 	private String userID;
 	private String bbsDate;
 	private String bbsContent;
-	private int bbsAvailable;
 	
+	
+	@Override
+	public String toString() {
+		return "Bbs [bbsID=" + bbsID + ", bbsTitle=" + bbsTitle + ", userID=" + userID + ", bbsDate=" + bbsDate
+				+ ", bbsContent=" + bbsContent + "]";
+	}
+	public Bbs() {
+		super();
+	}
+	public Bbs(int bbsID, String bbsTitle, String userID, String bbsDate, String bbsContent) {
+		super();
+		this.bbsID = bbsID;
+		this.bbsTitle = bbsTitle;
+		this.userID = userID;
+		this.bbsDate = bbsDate;
+		this.bbsContent = bbsContent;
+	}
 	public int getBbsID() {
 		return bbsID;
 	}
@@ -38,10 +54,6 @@ public class Bbs {
 	public void setBbsContent(String bbsContent) {
 		this.bbsContent = bbsContent;
 	}
-	public int getBbsAvailable() {
-		return bbsAvailable;
-	}
-	public void setBbsAvailable(int bbsAvailable) {
-		this.bbsAvailable = bbsAvailable;
-	}
+	
+	
 }

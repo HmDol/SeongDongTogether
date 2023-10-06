@@ -8,6 +8,22 @@
 <link rel="stylesheet" href ="${pageContext.request.contextPath}/css/bootstrap.min.css"/>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/custom.css"/>
 </head>
+ 
+    <script type="text/javascript">
+    let req = new XMLHttpRequest();
+    req.onload = () => {
+    	let obj = JSON.parse(req.responseText); //responseText: {"flag":true}
+    	let txt = "중복된 아이디";
+    	if(obj.flag){
+    		txt = "사용가능한 아이디";
+    	}
+    	document.getElementById("res").innerHTML = txt;
+    }
+    const a = () => {
+    	let id = document.getElementById("id_texst").value;
+    	req.open("get", "${pageContext.request.contextPath}/user/idcheck.do?id="+id);
+    	req.send();
+    </script>
 <body>
 	<nav class="navbar navbar-default">
 		<div class="navbar-header">
@@ -49,7 +65,8 @@
 				<form action="${pageContext.request.contextPath}/user/join.do" method="post">
 					<h3 style="text-align: center;">회원가입 화면</h3>
 					<div class="form-group">
-						<input type="text" class="form-control" placeholder="아이디" name="userID" maxlength="20" />
+						<input type="text" class="form-control" placeholder="아이디" name="userID" id="id_text"maxlength="20" />
+						<input type="button" id="id_bt" value="중복체크" onclick="a()"><span id="res"></span><br/>
 					</div>
 					<div class="form-group">
 						<input type="password" class="form-control" placeholder="비밀번호" name="userPassword" maxlength="20" />
@@ -81,7 +98,7 @@
 		</div>
 		<div class="col-lg-4"></div>
 	</div>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	
 	<script src="js/jquery-3.4.1.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 </body>
