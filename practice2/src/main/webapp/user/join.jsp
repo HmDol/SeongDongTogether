@@ -7,6 +7,8 @@
 <title>JSP 게시판 웹사이트</title>
 <link rel="stylesheet" href ="${pageContext.request.contextPath}/css/bootstrap.min.css"/>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/custom.css"/>
+<style type="text/css">
+</style>
 </head>
  
     <script type="text/javascript">
@@ -25,39 +27,7 @@
     	req.send();
     </script>
 <body>
-	<nav class="navbar navbar-default">
-		<div class="navbar-header">
-			<button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-				<span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
-			</button>
-			<a href="main.jsp" class="navbar-brand">JSP 게시판 웹 사이트</a>
-		</div>
-		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-			<ul class="nav navbar-nav">
-				<li>
-					<a href="main.jsp">메인</a>
-				</li>
-				<li>
-					<a href="bbs.jsp">게시판</a>
-				</li>
-			</ul>
-			<ul class="nav navbar-nav navbar-right">
-				<li class="dropdown">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-						접속하기<span class="caret"></span>
-					</a>
-					<ul class="dropdown-menu">
-						<li>
-							<a href="login.jsp">로그인</a>
-						</li>
-						<li class="active">
-							<a href="join.jsp">회원가입</a>
-						</li>
-					</ul>
-				</li>
-			</ul>
-		</div>
-	</nav>
+	<%@ include file="/header.jsp" %>
 	<div class="container">
 		<div class="col-lg-4"></div>
 		<div class="col-lg-4">
@@ -98,8 +68,6 @@
 		</div>
 		<div class="col-lg-4"></div>
 	</div>
-	
-	<script src="js/jquery-3.4.1.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
+<%@ include file="/footer.jsp" %>
 </body>
 </html>
