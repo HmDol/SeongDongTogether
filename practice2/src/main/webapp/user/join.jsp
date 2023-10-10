@@ -68,6 +68,9 @@
 		</div>
 		<div class="col-lg-4"></div>
 	</div>
-<%@ include file="/footer.jsp" %>
+	<%@ include file="/footer.jsp" %>
+   
+   
+   <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
 </body>
 </html>
