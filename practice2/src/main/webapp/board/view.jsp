@@ -23,19 +23,27 @@
 				<tbody>
 					<tr>
 						<td style="width: 20%;">글 제목</td>
-						<td></td>
+						<td>${bbs.bbsID }</td>
 					</tr>
 					<tr>
 						<td>작성자</td>
-						<td></td>
+						<td>${bbs.userID }</td>
 					</tr>
 					<tr>
 						<td>작성일자</td>
-						<td></td>
+						<td>${bbs.bbsDate }</td>
 					</tr>
 					<tr>
 						<td>내용</td>
-						<td style="min-height: 200px; text-align: left;"></td>
+						<td style="min-height: 200px; text-align: left;">${bbs.bbsContent }</td>
+					</tr>
+					<tr>
+						<td>사진1</td>
+						<td><img src="/together/${bbs.path1 }" alt="상품사진 없음"> </td>
+					</tr>
+					<tr>
+						<td>사진2</td>
+						<td><img src="/together/${bbs.path2 }" alt="상품사진 없음"> </td>
 					</tr>
 				</tbody>
 			</table>

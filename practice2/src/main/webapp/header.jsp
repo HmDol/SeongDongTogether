@@ -40,7 +40,7 @@ request.setCharacterEncoding("UTF-8");
 			<ul class="nav navbar-nav">
 				<li class="active"><a
 					href="${pageContext.request.contextPath}/main.jsp">메인</a></li>
-				<li><a href="${pageContext.request.contextPath}/board/bbs.jsp">게시판</a>
+				<li><a href="${pageContext.request.contextPath}/board/list.do">게시판</a>
 				</li>
 			</ul>
 			<%

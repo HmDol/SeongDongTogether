@@ -8,11 +8,10 @@ import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
-
 import bbs.Bbs;
 
 public interface BbsDao {
-	@Insert("insert into Bbs values(seq_Bbs.nextval,#{bbsTitle},#{userID},sysdate,#{bbsContent})")
+	@Insert("insert into Bbs values(seq_Bbs.nextval,#{bbsTitle},#{userID},sysdate,#{bbsContent},#{path1},#{path2})")
 	void insert(Bbs b);
 	
 	@Select("select * from Bbs where num=#{bbsID}")
@@ -27,7 +26,7 @@ public interface BbsDao {
 	@Select("select * from Bbs where bbsTitle like #{bbsTitle}")
 	ArrayList<Bbs> selectByTitle(@Param("bbsTitle") String bbsTitle);
 	
-	@Update("update Bbs set bbsTitle=#{bbsTitle}, bbsContent=#{bbsContent} where bbsID=#{bbsID}")
+	@Update("update Bbs set bbsTitle=#{bbsTitle}, bbsContent=#{bbsContent}, path1=#{path1},path2=#{path2} where bbsID=#{bbsID}")
 	void update(Bbs b);
 	
 	@Delete("delete Bbs where bbsID=#{bbsID}")

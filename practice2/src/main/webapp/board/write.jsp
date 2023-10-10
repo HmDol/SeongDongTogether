@@ -6,8 +6,8 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>JSP 게시판 웹사이트</title>
-<link rel="stylesheet" href="css/bootstrap.min.css" />
-<link rel="stylesheet" href="css/custom.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/custom.css" />
 </head>
 <body>
 	<%
@@ -72,7 +72,7 @@
 	</nav>
 	<div class="container">
 		<div class="row">
-			<form action="writeAction.jsp" method="post">
+			<form action="${pageContext.request.contextPath}/board/write.do?userID=${sessionScope.userID}" method="post" enctype="multipart/form-data">
 				<table class="table table-striped" style="text-align: center; border: 1px solid #ddd">
 					<thead>
 						<tr>
@@ -90,6 +90,18 @@
 								<textarea class="form-control" placeholder="글 내용" name="bbsContent" maxlength="2048" style="height: 350px"></textarea>
 							</td>
 						</tr>
+						<tr>
+							<td>
+								<input type="file" name="path1">
+							</td>
+						</tr>
+						
+						<tr>
+							<td>
+								<input type="file" name="path2">
+							</td>
+						</tr>
+						
 					</tbody>
 				</table>
 				<input type="submit" class="btn btn-primary pull-right" value="글쓰기">
