@@ -16,6 +16,7 @@
     left: 0;
     bottom: 0;
     width: 100%;
+    height : 80px;
   }
 
   footer p {
@@ -39,7 +40,7 @@
 </style>
 </head>
 <body>
-<br><br>
+
 <footer>
   <div class="container">
     <div class="row">

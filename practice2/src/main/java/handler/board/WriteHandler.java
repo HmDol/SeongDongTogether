@@ -28,10 +28,10 @@ public class WriteHandler implements Handler {
 						new DefaultFileRenamePolicy());
 				File[] f = { req.getFile("path1"), req.getFile("path2") };
 				
-				BbsService service = new BbsService();
-				String title = request.getParameter("bbsTitle");
-				String writer = request.getParameter("userID");
-				String content = request.getParameter("bbsContent");
+				
+				String title = req.getParameter("bbsTitle");
+				String writer = req.getParameter("userID");
+				String content = req.getParameter("bbsContent");
 				String[] imgs = new String[2];
 				for (int i = 0; i < f.length; i++) {
 					if (f[i] != null && f[i].length() != 0) {
@@ -40,6 +40,7 @@ public class WriteHandler implements Handler {
 						imgs[i] = "";
 					}
 				}
+				BbsService service = new BbsService();
 				System.out.println("/"+ title +"/"+ writer +"/"+ content +"/"+ imgs[0] +"/"+ imgs[1]);
 				service.addBbs(new Bbs(0,title,writer,new Date(0,0,0),content,imgs[0],imgs[1]));
 			} catch (IOException e) {

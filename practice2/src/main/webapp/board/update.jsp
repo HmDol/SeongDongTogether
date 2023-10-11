@@ -12,7 +12,7 @@
 	<%@ include file="/header.jsp" %>
 	<div class="container">
 		<div class="row">
-			<form action="updateAction.jsp" method="post">
+			<form action="${pageContext.request.contextPath}/board/edit.do?bbsID=${bbs.bbsID}" method="post">
 				<table class="table table-striped" style="text-align: center; border: 1px solid #ddd">
 					<thead>
 						<tr>
@@ -22,14 +22,15 @@
 					<tbody>
 						<tr>
 							<td>
-								<input type="text" class="form-control" placeholder="글 제목" name="bbsTitle" maxlength="50" value="">
+								<input type="text" class="form-control" placeholder="글 제목" name="bbsTitle" maxlength="50" value=${bbs.bbsTitle }>
 							</td>
 						</tr>
 						<tr>
 							<td>
-								<textarea class="form-control" placeholder="글 내용" name="bbsContent" maxlength="2048" style="height: 350px"></textarea>
+								<textarea class="form-control" placeholder="글 내용" name="bbsContent" maxlength="2048" style="height: 350px">${bbs.bbsContent }</textarea>
 							</td>
 						</tr>
+					
 					</tbody>
 				</table>
 				<input type="submit" class="btn btn-primary pull-right" value="글수정">

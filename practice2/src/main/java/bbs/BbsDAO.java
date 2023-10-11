@@ -14,7 +14,7 @@ public interface BbsDao {
 	@Insert("insert into Bbs values(seq_Bbs.nextval,#{bbsTitle},#{userID},sysdate,#{bbsContent},#{path1},#{path2})")
 	void insert(Bbs b);
 	
-	@Select("select * from Bbs where num=#{bbsID}")
+	@Select("select * from Bbs where bbsID=#{bbsID}")
 	Bbs select(@Param("bbsID") int bbsID);
 	
 	@Select("select * from Bbs")
