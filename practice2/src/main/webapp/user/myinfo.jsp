@@ -7,6 +7,11 @@
 <title>JSP 게시판 웹사이트</title>
 <link rel="stylesheet" href ="${pageContext.request.contextPath}/css/bootstrap.min.css"/>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/custom.css"/>
+<script type="text/javascript">
+const change = () => {
+
+}
+</script>
 </head>
 <body>
 	<%@ include file="/header.jsp" %>
@@ -14,7 +19,7 @@
 		<div class="col-lg-4"></div>
 		<div class="col-lg-4">
 			<div class="jumbotron" style="padding-top: 20px;">
-				<form action="${pageContext.request.contextPath}/user/myinfo.do" method="post">
+				<form action="${pageContext.request.contextPath}/user/myinfo.do" method="post" name="f">
 					<h3 style="text-align: center;">내 정보</h3>
 					<div class="form-group">
 						<input type="text" value="${userID}"class="form-control" placeholder="아이디" name="userID" maxlength="20" readonly/>
@@ -39,7 +44,7 @@
 					<div class="form-group">
 						<input type="email" class="form-control" placeholder="이메일" name="userEmail" maxlength="50" value="${UserEmail}" />
 					</div>
-					<input type="submit" class="btn btn-primary form-control" value="내 정보수정" />
+					<input type="submit" class="btn btn-primary form-control" value="내 정보수정"/>
 				</form>
 			</div>
 		</div>

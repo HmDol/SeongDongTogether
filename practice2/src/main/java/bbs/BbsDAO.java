@@ -26,7 +26,7 @@ public interface BbsDao {
 	@Select("select * from Bbs where bbsTitle like #{bbsTitle}")
 	ArrayList<Bbs> selectByTitle(@Param("bbsTitle") String bbsTitle);
 	
-	@Update("update Bbs set bbsTitle=#{bbsTitle}, bbsContent=#{bbsContent}, path1=#{path1},path2=#{path2} where bbsID=#{bbsID}")
+	@Update("update Bbs set bbsTitle=#{bbsTitle}, bbsContent=#{bbsContent} where bbsID=#{bbsID}")
 	void update(Bbs b);
 	
 	@Delete("delete Bbs where bbsID=#{bbsID}")

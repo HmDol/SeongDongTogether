@@ -12,14 +12,14 @@ import User.UserService;
 
 public class LogoutHandler implements Handler {
 
-   @Override
-   public String process(HttpServletRequest request, HttpServletResponse response) {
-      
-      String view = "/main.jsp";      
-      HttpSession session = request.getSession(false);
-      session.invalidate();
-      view = "redirect:/main.jsp";
-      return view;
-   }
-   
+	@Override
+	public String process(HttpServletRequest request, HttpServletResponse response) {
+		
+		String view = "/main.jsp";		
+		HttpSession session = request.getSession(false);
+		session.invalidate();
+		view = "redirect:/main.jsp";
+		return view;
+	}
+	
 }

@@ -18,7 +18,6 @@ public class ListHandler implements Handler {
 		if(request.getMethod().equals("GET")) {
 			BbsService service = new BbsService();
 			ArrayList<Bbs> list= service.getAll();
-			System.out.println(list);
 			request.setAttribute("list", list);
 			view ="/board/bbs.jsp";
 					

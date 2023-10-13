@@ -1,5 +1,7 @@
 package handler.user;
 
+import java.io.IOException;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -24,10 +26,14 @@ public class MyinfoHandler implements Handler {
 			String userEmail = request.getParameter("userEmail");
 			UserService service = new UserService();
 			service.editUser(new User(userID, userPassword, null, null, userphoneNum ,userEmail));
-		    HttpSession session = request.getSession(false);
-		    session.invalidate();
-
-			view = "redirect:/main.jsp";
+			HttpSession session = request.getSession(false);
+			session.invalidate();
+			try {
+				ScriptUtils.alertAndMovePage(response, "내 정보수정이 완료되었습니다. 다시 로그인해주세요.", "/practice2/main.jsp");
+				return null;
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		}
 		
 		return view;

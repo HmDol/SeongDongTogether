@@ -4,8 +4,15 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
+
+@font-face { 
+  font-family: "bmjua";
+  src: url("fonts/bmjua.ttf") format("truetype");
+  font-weight: normal;
+} 
+
 html {
-  font-family: sans-serif;
+  font-family: bmjua;
   -webkit-text-size-adjust: 100%;
       -ms-text-size-adjust: 100%;
 }
@@ -45,8 +52,9 @@ template {
 a {
   background-color: transparent;
 }
-a:active,
-a:hover {
+a:hover,
+a:active
+ {
   outline: 0;
 }
 abbr[title] {
@@ -1478,7 +1486,7 @@ blockquote {
   padding: 10px 20px;
   margin: 0 0 20px;
   font-size: 17.5px;
-  border-left: 5px solid #eee;
+ 
 }
 blockquote p:last-child,
 blockquote ul:last-child,
@@ -1586,6 +1594,7 @@ pre code {
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
+  margin-buttom : 1000px;
 }
 @media (min-width: 768px) {
   .container {
