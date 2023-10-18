@@ -111,7 +111,7 @@ blockquote cite:after {
 	<center>
 	<blockquote>
 		<div class="hline top"></div>
-		<h1>학교 정보</h1>
+		<h1>학교정보</h1>
 		<p>"배움이 없는 자유는 언제나 위험하며 자유가 없는 배움은 언제나 헛된 일입니다."</p>
 		<cite>- 존 F 케네디 </cite>
 		<div class="hline bottom"></div>

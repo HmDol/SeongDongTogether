@@ -11,6 +11,10 @@ import java.net.URLConnection;
 import java.text.ParseException;
 import java.util.ArrayList;
 
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -39,57 +43,36 @@ public class ListHandler implements Handler {
 	public String process(HttpServletRequest request, HttpServletResponse response) {
 
 		String view = "/announce/list.jsp";
-		String urlstr = "http://openapi.seoul.go.kr:8088/6a52464e426479643830706b484a5a/xml/GlobalCenterNews/1/1000";
 		try {
-			URL url = new URL(urlstr);
-			URLConnection conn = url.openConnection();
-			DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-			DocumentBuilder builder = factory.newDocumentBuilder();
-			Document doc = builder.parse(conn.getInputStream());
-			Element root = doc.getDocumentElement();
-			NodeList locs = root.getElementsByTagName("row");
+            URL url = new URL("http://openapi.seoul.go.kr:8088/6a52464e426479643830706b484a5a/json/GlobalCenterNews/1/1000");
+
+            URLConnection conn = url.openConnection();
+            InputStream in = conn.getInputStream();
+            JSONParser parser = new JSONParser();
+            JSONObject obj = (JSONObject) parser.parse(new InputStreamReader(in));
+            JSONObject res = (JSONObject) obj.get("GlobalCenterNews");
+            JSONArray arr = (JSONArray) res.get("row");
 			ArrayList<Announce> list = new ArrayList<>();
-			AnnounceService a = new AnnounceService();
 			int num = 1;
-			for (int i = 0; i < locs.getLength(); i++) {
-
-				Element data = (Element) locs.item(i);
-				String title = data.getElementsByTagName("TITL_NM").item(0).getTextContent();
-				String content = data.getElementsByTagName("CONT").item(0).getTextContent();
-				String writer = data.getElementsByTagName("WRIT_NM").item(0).getTextContent();
-				String lang = data.getElementsByTagName("LANG_GB").item(0).getTextContent();
-				String wdate = data.getElementsByTagName("REG_DT").item(0).getTextContent();
-				String udate = data.getElementsByTagName("UPD_DT").item(0).getTextContent();
-				list.add(new Announce(num++, title, content, writer, lang, wdate, udate));
-			}
-			
-			/*if(a.getCount()==0) {
+            for (int i = 0; i < arr.size(); i++) {
+                JSONObject item = (JSONObject) arr.get(i);
+                
+				String title = (String) item.get("TITL_NM");
+				String content = (String) item.get("CONT");
+				String writer = (String) item.get("WRIT_NM");
+				String lang = (String) item.get("LANG_GB");
+				String wdate = (String) item.get("REG_DT");
+				String udate = (String) item.get("UPD_DT");
 				
-				for (int i = 0; i < locs.getLength(); i++) {
+				list.add(new Announce(num++, title, content, writer, lang, wdate, udate));
+            }
 
-					Element data = (Element) locs.item(i);
-					String title = data.getElementsByTagName("TITL_NM").item(0).getTextContent();
-					String content = (String)data.getElementsByTagName("CONT").item(0).getTextContent();
-					String writer = data.getElementsByTagName("WRIT_NM").item(0).getTextContent();
-					String lang = data.getElementsByTagName("LANG_GB").item(0).getTextContent();
-					String wdate = data.getElementsByTagName("REG_DT").item(0).getTextContent();
-					String udate = data.getElementsByTagName("UPD_DT").item(0).getTextContent();
-					a.addAnnounce(new Announce(0, title, content, writer, lang, wdate, udate));
-				}
-			}*/
-			
-			request.setAttribute("list", list);
-		} catch (MalformedURLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (ParserConfigurationException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (SAXException e) {
-			// TODO Auto-generated catch block
+            request.setAttribute("list", list);
+        } catch (MalformedURLException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        } catch (org.json.simple.parser.ParseException e) {
 			e.printStackTrace();
 		}
 		request.setAttribute("view", "/announce/list.jsp");

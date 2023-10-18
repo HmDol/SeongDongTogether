@@ -105,7 +105,7 @@ blockquote cite:after {
 	<blockquote>
 		<div class="hline top"></div>
 		<h1>공지사항</h1>
-		<p>이루어질 꿈도 이루어지지 않을 꿈만큼 불확실할 수 있다.</p>
+		<p>"이루어질 꿈도 이루어지지 않을 꿈만큼 불확실할 수 있다."</p>
 		<cite>-브렛 버틀러</cite>
 		<div class="hline bottom"></div>
 	</blockquote>

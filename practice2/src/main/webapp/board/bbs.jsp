@@ -111,7 +111,7 @@ blockquote cite:after {
 	<blockquote>
 		<div class="hline top"></div>
 		<h1>소통게시판</h1>
-		<p>소통하지 못한다면, 어떠한 행복도 느끼지 못한다.</p>
+		<p>"소통하지 못한다면, 어떠한 행복도 느끼지 못한다."</p>
 		<cite>-미셀 드 몬테인</cite>
 		<div class="hline bottom"></div>
 	</blockquote>

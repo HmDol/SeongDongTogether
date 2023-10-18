@@ -10,12 +10,13 @@
     background-color: #f8f8f8;
     padding: 20px 0;
     color: #777;
-    position : fixed;
     font-size: 14px;
+    
+     position: fixed; /* 화면 하단에 고정 */
     left: 0;
     bottom: 0;
     width: 100%;
-    height: 100px;
+    height: 60px;
   }
 
   footer p {

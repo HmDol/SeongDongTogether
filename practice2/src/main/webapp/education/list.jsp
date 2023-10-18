@@ -12,13 +12,7 @@
 	href="${pageContext.request.contextPath}/css/bootstrap.min.css" />
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/custom.css" />
-<script type="text/javascript">
-const move = (val) => {
-	//alert(val);
-	var openNewWindow = window.open("about:blank");
-	openNewWindow.location.href = val;
-}
-</script>
+</head>
 <style>
 @import url('https://fonts.googleapis.com/css?family=Raleway');
 
@@ -104,15 +98,14 @@ blockquote cite:after {
 	left: 0;
 }
 </style>
-</head>
 <body>
 	<%@ include file="/header.jsp"%>
 	<center>
 		<blockquote>
 			<div class="hline top"></div>
-			<h1>채용정보</h1>
-			<p>"어디를 가든지 마음을 다해 가라."</p>
-			<cite>-공자</cite>
+			<h1>교육프로그램</h1>
+			<p>"교육의 목적은 기계를 만드는 것이 아니라, 인간을 만드는 데 있다."</p>
+			<cite>-루소</cite>
 			<div class="hline bottom"></div>
 		</blockquote>
 	</center>
@@ -133,24 +126,26 @@ blockquote cite:after {
 						<th style="background-color: #eee; text-align: center;">글번호
 						</td>
 						<th
-							style="background-color: #eee; text-align: center; width: 50%;">제목명
+							style="background-color: #eee; text-align: center; width: 40%;">제목
 						</td>
-						<th style="background-color: #eee; text-align: center;">작성자</th>
 						<th style="background-color: #eee; text-align: center;">언어</th>
-						<th style="background-color: #eee; text-align: center;">등록일자</th>
-						<th style="background-color: #eee; text-align: center;">수정일자</th>
+						<th style="background-color: #eee; text-align: center;">마감여부</th>
+						<th
+							style="background-color: #eee; text-align: center; width: 20%;">신청자격</th>
+						<th style="background-color: #eee; text-align: center;">작성일자</th>
 					</tr>
 					<c:forEach var="w" items="${list }">
+
 						<tr>
 							<td>${w.num }</td>
 							<td style="cursor: pointer"
 								; onmouseover="this.style.color='blue'"
 								; onmouseout="this.style.color='black'"
-								onClick="location.href='${pageContext.request.contextPath}/recruit/detail.do?num=${w.num}'">${w.TITL_NM }</td>
-							<td>${w.WRIT_NM }</td>
-							<td>${w.LANG_GB }</td>
-							<td>${w.REG_DT }</td>
-							<td>${w.UPD_DT }</td>
+								onClick="location.href='${pageContext.request.contextPath}/education/detail.do?num=${w.num}'">${w.title }</td>
+							<td>${w.lang }</td>
+							<td>${w.endyn }</td>
+							<td>${w.qual }</td>
+							<td>${w.date }</td>
 						</tr>
 					</c:forEach>
 				</tbody>

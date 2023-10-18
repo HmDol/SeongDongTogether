@@ -37,9 +37,6 @@ const logout = () => {
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
          <ul class="nav navbar-nav">
             <li>
-               <a style="font-weight:bold" href="/practice2/main.jsp">메인</a>
-            </li>
-            <li>
                <a style="font-weight:bold" href="${pageContext.request.contextPath}/board/list.do">게시판</a>
             </li>
             <li>
@@ -50,6 +47,12 @@ const logout = () => {
             </li>
             <li>
                <a style="font-weight:bold" href="${pageContext.request.contextPath}/recruit/list.do">채용정보</a>
+            </li>
+            <li>
+               <a style="font-weight:bold" href="${pageContext.request.contextPath}/education/list.do">교육프로그램</a>
+            </li>
+            <li>
+               <a style="font-weight:bold" href="${pageContext.request.contextPath}/recommend/list.do">추천시스템</a>
             </li>
          </ul>
          <%
